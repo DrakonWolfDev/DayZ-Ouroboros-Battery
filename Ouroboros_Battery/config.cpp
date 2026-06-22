@@ -1,20 +1,42 @@
-#define _ARMA_
-
 class CfgPatches
 {
 	class OuroborosBattery
 	{
-		requiredVersion = 0.1; 
+		units[] = {"Ouroboros_Admin_Battery","Ouroboros_Battery"};
+		weapons[] = {};
+		requiredVersion = 0.1;
 		requiredAddons[] = {"DZ_Data","DZ_Gear_Consumables"};
 		author = "DrakonWolf";
 		version = "1.0";
 	};
 };
 
-class cfgVehicles
+class CfgMods
+{
+	class OuroborosBattery
+	{
+		dir = "Ouroboros_Battery";
+		name = "Ouroboros Battery";
+		author = "DrakonWolf";
+		version = "1.0";
+		type = "mod";
+		dependencies[] = {"World"};
+
+		class defs
+		{
+			class worldScriptModule
+			{
+				value = "";
+				files[] = {"Ouroboros_Battery/Scripts/4_World"};
+			};
+		};
+	};
+};
+
+class CfgVehicles
 {
 	class Inventory_Base;
-	class Battery9V: Inventory_Base{};
+	class Battery9V: Inventory_Base {};
 
 	// Base class for all Ouroboros batteries.
 	// Inherits from the vanilla 9V battery and defines shared properties.
@@ -37,7 +59,7 @@ class cfgVehicles
 		};
 	};
 
-	// Admin battery: provides effectively infinite power and extremely high durability.
+	// Admin battery: its world script replenishes consumed power and disables damage.
 	class Ouroboros_Admin_Battery: Ouroboros_Battery_Base
 	{
 		scope = 2;
@@ -52,17 +74,6 @@ class cfgVehicles
 			reduceMaxEnergyByDamageCoef = 0; 
 		};
 
-		// Extremely high health so the battery will not realistically reach the "Ruined" state
-		class DamageSystem
-		{
-			class GlobalHealth
-			{
-				class Health
-				{
-					hitpoints = 999999; // Effectively indestructible by normal gameplay means
-				};
-			};
-		};
 	};
 
 	// Player battery: Long-lasting version with standard survival mechanics
@@ -70,7 +81,7 @@ class cfgVehicles
 	{
 		scope = 2;
 		displayName = "Ouroboros Battery";
-		descriptionShort = "A high-capacity battery source. Highly durable but not infinite.";
+		descriptionShort = "A high-capacity battery source. Long-lasting, but vulnerable to damage.";
 		
 		class EnergyManager: EnergyManager
 		{
