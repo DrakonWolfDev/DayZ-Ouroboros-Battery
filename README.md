@@ -63,7 +63,12 @@ Future updates will remain modular and backwards compatible where possible.
 
 ---
 
+## Localization
+
+Localized item names and descriptions are included for English, Czech, German, Russian, Polish, Hungarian, Italian, Spanish, French, Traditional Chinese, Japanese, Portuguese, and Simplified Chinese. DayZ falls back to the English text when a client language is unavailable.
+
+---
+
 ## License
 
 MIT License — free to use, modify, and redistribute with attribution.
-

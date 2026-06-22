@@ -63,8 +63,8 @@ class CfgVehicles
 	class Ouroboros_Admin_Battery: Ouroboros_Battery_Base
 	{
 		scope = 2;
-		displayName = "Ouroboros Admin Battery";
-		descriptionShort = "An admin battery. Truly infinite power and physically indestructible.";
+		displayName = "$STR_OB_ADMIN_BATTERY";
+		descriptionShort = "$STR_OB_ADMIN_BATTERY_DESC";
 		
 		class EnergyManager: EnergyManager
 		{
@@ -80,8 +80,8 @@ class CfgVehicles
 	class Ouroboros_Battery: Ouroboros_Battery_Base
 	{
 		scope = 2;
-		displayName = "Ouroboros Battery";
-		descriptionShort = "A high-capacity battery source. Long-lasting, but vulnerable to damage.";
+		displayName = "$STR_OB_BATTERY";
+		descriptionShort = "$STR_OB_BATTERY_DESC";
 		
 		class EnergyManager: EnergyManager
 		{
